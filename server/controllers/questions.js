@@ -8,7 +8,6 @@ module.exports = {
     if(Array.isArray(req.body)) {
       const promises = questions.map(question =>
         Question.create({
-          tags: question.tags,
           title: question.title,
           code: question.code,
           answers: question.answers
@@ -23,7 +22,6 @@ module.exports = {
         .catch(error => res.status(400).send(error));
     } else {
       const promise = Question.create({
-          tags: req.body.tags,
           title: req.body.title,
           code: req.body.code,
           answers: req.body.answers
